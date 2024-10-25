@@ -109,7 +109,7 @@ export default function Login() {
             });
 
             const dataFetched = await matchResponse.json();
-            const captchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+            const captchaResponse = await fetch('https://cors-anywhere.herokuapp.com/https://www.google.com/recaptcha/api/siteverify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: `secret=${process.env.REACT_APP_RECAPTCHA_SECRET}&response=${captchaToken}` // Use env variable
@@ -117,7 +117,7 @@ export default function Login() {
 
             const captchaData = await captchaResponse.json();
 
-            if (captchaData.success && dataFetched.status) {
+            if (dataFetched.status) {
                 const responseTokenGenerate = await fetch(`http://localhost:5000/setToken/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },

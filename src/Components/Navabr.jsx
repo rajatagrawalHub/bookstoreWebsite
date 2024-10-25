@@ -23,7 +23,7 @@ export default function NavBar({WishCount}){
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/Shop">Shop</Link>
-                <Link to="/Login">Sell Your Book</Link>
+                <Link to="/Login">Login</Link>
             </div>
             <div id="ShopButtons">
             <Link to="/WishList">
